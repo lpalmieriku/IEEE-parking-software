@@ -1,0 +1,8 @@
+we are creating a website in flask that will host our parking detection method 
+the goal of the project is to use a rasberry pie that will shoot out an infered laser that will detect when somone leaves or enters the parking garage
+this will allow the website to count the number of avalible parking spots by counting the number of people that entered the parking garage subtracting that by the number of people who entered the parking garage
+this will give us the total ammount of parking at any given moment and when people leave the garage it will add 1 to the total
+
+EX: you have 30 total parking spots, 25 people enter so you have 5 parking spots left, but then 3 people leave so you now have 8 left
+
+not only will the website hold that data but it will allow you to search by parking garage or spot depending on what parking permit we have
