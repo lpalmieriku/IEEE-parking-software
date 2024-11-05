@@ -1,3 +1,48 @@
 h1 {
     text-align: center;
 }
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  li {
+    width:10%;
+    font-size: 18px;
+    float: left;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.dropdown {
+  float:left;
+  overflow:hidden;
+}
+
+.drop-content {
+  display: none;
+  position: absolute;
+  background-color: #333;
+  min-width: 10%;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.drop-content a:hover {
+  background-color: red;
+  color:black;
+}
+
+.dropdown:hover .drop-content {
+  display: block;
+}
