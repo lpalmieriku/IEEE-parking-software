@@ -3,13 +3,70 @@
 {% block head %}
     <title>IEEE Parking Software</title>
     <link rel="stylesheet"  href="../static/style.css">
+    <script type="text/javascript" src="parkChart.js"></script>
 {% endblock %}
 {% block body %}
 
     <div><h1>Number of remaining parking spots: <span id="number"></span></h1></div>
     <script src="static/script.js"></script>
-    <p>Javascript Chart</p>
+    
     <div><h1>Number of remaining parking spots: <span id="sum"></span></h1></div>
+    <p>Javascript Chart</p>
+    <div><script>chart();</script></div>
+
+    <div>
+        <canvas id="myChart"></canvas>
+      </div>
+      
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      
+      <script>
+        const ctx = document.getElementById('myChart');
+      
+        new Chart(ctx, {
+          type: 'doughnut',
+          data: {
+            labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+            datasets: [{
+              label: '# of Votes',
+              data: [12, 19, 3, 5, 2, 3],
+              borderWidth: 1
+            }]
+          },
+          options: {
+            scales: {
+              y: {
+                beginAtZero: true
+              }
+            }
+          }
+        });
+      </script>
+    const config = {
+        type: 'doughnut',
+        data: data,
+      };
+    
+    const data = {
+    labels: [
+        'Red',
+        'Blue',
+        'Yellow'
+    ],
+    datasets: [{
+        label: 'My First Dataset',
+        data: [300, 50, 100],
+        backgroundColor: [
+        'rgb(255, 99, 132)',
+        'rgb(54, 162, 235)',
+        'rgb(255, 205, 86)'
+        ],
+        hoverOffset: 4
+    }]
+    };
+
+
+    
     <div>
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
