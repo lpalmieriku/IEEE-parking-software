@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>IEEE Parking Software</title>
+    <link rel="stylesheet"  href="../static/style.css">
+    <script type="text/javascript" src="parkChart.js"></script>
+{% endblock %}
+{% block body %}
+
+    <script src="static/script.js"></script>
+    
+    <div><h1>Number of remaining parking spots: <span id="sum"></span></h1></div>
+    <div><script>chart();</script></div>
+
+    <div>
+        <canvas id="myChart"></canvas>
+      </div>
+      
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      
+      <script>
+        const total=584; //584 total regular parking spots
+        const unavailable = 20; //parseInt(document.getElementById('sum').innerText, 10) || 0; currently 200 is example number
+        const available = total-unavailable;
+        const ctx = document.getElementById('myChart');
+      
+        new Chart(ctx, {
+          type: 'doughnut',
+          data: {
+            labels: ['Avilable', 'Unavailable'],
+            datasets: [{
+              label: 'Parking Avilability',
+              data: [available, unavailable], 
+              borderWidth: 1
+            }]
+          },
+        });
+      </script>
+    
+    <script src="../static/script.js"></script>
+{% endblock %}
