@@ -8,47 +8,53 @@
 {% block body %}
 
     <script src="static/script.js"></script>
-    <div>
-    <div><h1>Number of remaining parking spots: </span><span id="sum"></span></h1></div>
-    <div>
-      <ul>
-          <li class="dropdown">
-              <a id=""dropbut>Level Counters</a>
-              <div class="drop-content">
-                  <a href="/level1/">Level 1</a>
-                  <a href="/level2/">Level 2</a>
-                  <a href="/level3/">Level 3</a>
-                  <a href="/level4/">Level 4</a>
-              </div>
-          </li>
-        </ul>
-  </div>
+    <img src="https://i.postimg.cc/fL0rZPz8/parking-Image.jpg" alt="Example Image">
+    <div><h1>Number of remaining parking spots: <span id="sum"></span></h1></div>
+    <p>Javascript Chart</p>
     <div><script>chart();</script></div>
+
     <div>
-        <canvas id="myChart"></canvas>
-    </div>
-  </div>
+        <canvas id="myChart" style="width: 200px; height: 200px;"></canvas>
+      </div>
       
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
       
       <script>
-        const total=584; //584 total regular parking spots
-        const unavailable = 20; //parseInt(document.getElementById('sum').innerText, 10) || 0; currently 200 is example number
-        const available = total-unavailable;
+        const total=584;
+        const available = 500; //temp 500 //parseInt(document.getElementById('sum').innerText, 10) || 0;
+        const unavailable = total-available;
         const ctx = document.getElementById('myChart');
       
         new Chart(ctx, {
           type: 'doughnut',
           data: {
-            labels: ['Avilable', 'Unavailable'],
+            labels: ['Available', 'Unavailable'],
             datasets: [{
               label: 'Parking Avilability',
-              data: [available, unavailable], 
+              data: [unavailable, available], //should be [unavailable,available], but idk what the total is ask lena
               borderWidth: 1
             }]
           },
-        });
+            options: {
+            responsive: true,
+            maintainAspectRatio: false, // Ensure the canvas respects the custom dimensions
+        }
+    });
       </script>
     
+    <div>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <div>
+            <button>Counters</button>
+            <div>
+                <a href="level1.html">Level 1</a>
+                <a href="level2.html">Level 2</a>
+                <a href="level3.html">Level 3</a>
+                <a href="level4.html">Level 4</a>
+            </div>
+        </div>
+        <a href="game_dates.html">Game Dates</a>
+    </div>
     <script src="../static/script.js"></script>
 {% endblock %}
