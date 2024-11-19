@@ -8,13 +8,26 @@
 {% block body %}
 
     <script src="static/script.js"></script>
-    
-    <div><h1>Number of remaining parking spots: <span id="sum"></span></h1></div>
+    <div>
+    <div><h1>Number of remaining parking spots: </span><span id="sum"></span></h1></div>
+    <div>
+      <ul>
+          <li class="dropdown">
+              <a id=""dropbut>Level Counters</a>
+              <div class="drop-content">
+                  <a href="/level1/">Level 1</a>
+                  <a href="/level2/">Level 2</a>
+                  <a href="/level3/">Level 3</a>
+                  <a href="/level4/">Level 4</a>
+              </div>
+          </li>
+        </ul>
+  </div>
     <div><script>chart();</script></div>
-
     <div>
         <canvas id="myChart"></canvas>
-      </div>
+    </div>
+  </div>
       
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
       
