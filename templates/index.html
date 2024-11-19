@@ -14,7 +14,7 @@
     <div><script>chart();</script></div>
 
     <div>
-        <canvas id="myChart"></canvas>
+        <canvas id="myChart" style="width: 200px; height: 200px;"></canvas>
       </div>
       
       <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -35,7 +35,11 @@
               borderWidth: 1
             }]
           },
-        });
+            options: {
+            responsive: true,
+            maintainAspectRatio: false, // Ensure the canvas respects the custom dimensions
+        }
+    });
       </script>
     
     <div>
