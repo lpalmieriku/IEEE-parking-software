@@ -7,6 +7,8 @@
 
 ## **Team Members**
 
-  ### **[Name]**
+  ### **Lena Palmieri**
     [Role] | [Email]
     Programming Experience
+  ### **[Name]**
+  ### **[Name]**
