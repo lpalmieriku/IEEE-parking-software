@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    <title>IEEE Parking Software</title>
+    <link rel="stylesheet"  href="../static/style.css">
+    <script type="text/javascript" src="parkChart.js"></script>
+{% endblock %}
+{% block body %}
+
+    <script src="static/script.js"></script>
+    <img src="https://i.postimg.cc/fL0rZPz8/parking-Image.jpg" alt="Image of Parking Garage" width="50%" height="50%">
+    <div><h1>Number of remaining parking spots: <span id="sum"></span></h1></div>
+    <p>Javascript Chart</p>
+    <div><script>chart();</script></div>
+
+    <div><canvas id="myChart" style="width: 200px; height: 200px;"></canvas></div>
+    <div><canvas id="Level1" style="width: 200px; height: 200px;"></canvas></div>
+    <div><canvas id="Level2" style="width: 200px; height: 200px;"></canvas></div>
+    <div><canvas id="Level3" style="width: 200px; height: 200px;"></canvas></div>
+    <div><canvas id="Level4" style="width: 200px; height: 200px;"></canvas></div>
+
+      
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      
+      <script>
+        const total=584;
+        const available = 500; //temp 500 //parseInt(document.getElementById('sum').innerText, 10) || 0;
+        const unavailable = total-available;
+        const ctx = document.getElementById('myChart');
+      
+        new Chart(ctx, {
+          type: 'doughnut',
+          data: {
+            labels: ['Available', 'Unavailable'],
+            datasets: [{
+              label: 'Parking Avilability',
+              data: [unavailable, available], //should be [unavailable,available], but idk what the total is ask lena
+              borderWidth: 1
+            }]
+          },
+            options: {
+            responsive: true,
+            maintainAspectRatio: false, //ensure the canvas respects the custom dimensions
+        }
+
+
+
+        
+    });
+
+    const lvlTotals=[96,106,115,117]; //true as far as we know, next line needs to take varaibles
+    const taken=[25,50,15,5]; //[parseInt(document.getElementById('lvl1').innerText, 10) || 0, parseInt(document.getElementById('lvl2').innerText, 10) || 0, parseInt(document.getElementById('lvl3').innerText, 10) || 0, parseInt(document.getElementById('lvl4').innerText, 10) || 0]
+    const free=[lvlTotals[0]-taken[0], lvlTotals[1]-taken[1], lvlTotals[2]-taken[2], lvlTotals[3]-taken[3]]
+    
+    const ctx1 = document.getElementById('Level1');
+    new Chart(ctx1, {
+        type: 'doughnut',
+        data: {
+            labels: ['Available', 'Unavailable'],
+            datasets: [{
+                label: 'Parking Availability',
+                data: [free[0], taken[0]],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false, 
+        }
+    });
+
+
+    const ctx2 = document.getElementById('Level2');
+    new Chart(ctx2, {
+        type: 'doughnut',
+        data: {
+            labels: ['Available', 'Unavailable'],
+            datasets: [{
+                label: 'Parking Availability',
+                data: [free[1], taken[1]],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false, 
+        }
+    }); 
+
+
+    const ctx3 = document.getElementById('Level3');
+    new Chart(ctx3, {
+        type: 'doughnut',
+        data: {
+            labels: ['Available', 'Unavailable'],
+            datasets: [{
+                label: 'Parking Availability',
+                data: [free[2], taken[2]],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false, 
+        }
+    });
+
+
+    const ctx4 = document.getElementById('Level4');
+    new Chart(ctx4, {
+        type: 'doughnut',
+        data: {
+            labels: ['Available', 'Unavailable'],
+            datasets: [{
+                label: 'Parking Availability',
+                data: [free[3], taken[3]],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false, 
+        }
+    });
+
+      </script>
+    
+    <div>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <div>
+            <button>Counters</button>
+            <div>
+                <a href="level1.html">Level 1</a>
+                <a href="level2.html">Level 2</a>
+                <a href="level3.html">Level 3</a>
+                <a href="level4.html">Level 4</a>
+            </div>
+        </div>
+        <a href="game_dates.html">Game Dates</a>
+    </div>
+    <script src="../static/script.js"></script>
+{% endblock %}
