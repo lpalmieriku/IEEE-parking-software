@@ -1,20 +1,17 @@
-var level1 = 100;
-var level2 = 100;
-var level3 = 100;
-var level4 = 100;
-var sum = level1 + level2 + level3 + level4;
+var name
+var level1;
+var level2;
+var level3;
+var level4;
+var handicap;
+var motorcycle;
+var sum;
 
 var sum_cont = document.getElementById('sum');
 var level1_cont = document.getElementById('level1_parking');
 var level2_cont = document.getElementById('level2_parking');
 var level3_cont = document.getElementById('level3_parking');
 var level4_cont = document.getElementById('level4_parking');
-
-sum_cont.innerHTML = sum;
-function main() {
-    window.addEventListener('keydown', update_num)
-    //window.addEventListener('sensor', update_num)
-}
 
 function update_num(event) {
     if (event.code == "ArrowUp") {
@@ -55,5 +52,43 @@ function update_num(event) {
     */
     sum_cont.innerHTML = sum;
         
+}
+
+async function submitQuery() {
+    const garage = { name: "Allen Fieldhouse Parking Garage"};
+    try {
+        const response = await fetch('http://127.0.0.1:5000/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(garage),
+        }); 
+        const data = await response.json()
+        console.log(data[0]);
+        setAvailableSpots(data[0]);
+    } catch (error) {
+        console.error('Error submitting query:', error);
+    }
+}
+
+function setAvailableSpots(garage) {
+    level1 = garage['floor 1'];
+    level2 = garage['floor 2'];
+    level3 = garage['floor 3'];
+    level4 = garage['floor 4'];
+    handicap = garage['handicap'];
+    motorcycle = garage['motorcycle'];
+    sum = level1 + level2 + level3 + level4;
+    console.log(level1, level2, level3, level4, handicap, motorcycle, sum, "Test");
+    return level1, level2, level3, level4, handicap, motorcycle, sum;
+}
+
+function main() {
+    level1, level2, level3, level4, handicap, motorcycle, sum = submitQuery();
+    console.log(level1, level2, level3, level4, handicap, motorcycle, sum, "Test");
+    sum_cont.innerHTML = sum;
+    //window.addEventListener('keydown', update_num)
+    //window.addEventListener('sensor', update_num)
 }
 main()
