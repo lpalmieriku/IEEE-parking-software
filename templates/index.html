@@ -3,14 +3,44 @@
 {% block head %}
     <title>IEEE Parking Software</title>
     <link rel="stylesheet"  href="../static/style.css">
-    <script type="text/javascript" src="parkChart.js"></script>
 {% endblock %}
 {% block body %}
 
     <script src="static/script.js"></script>
-    <img src="https://i.postimg.cc/fL0rZPz8/parking-Image.jpg" alt="Image of Parking Garage" width="50%" height="50%">
-    <div><h1>Number of remaining parking spots: <span id="sum"></span></h1></div>
-    <p>Javascript Chart</p>
+    <div>
+      <h1>Number of remaining parking spots: <span id="sum"></span></h1>
+      <table>
+        <tr>
+          <th>Space Type</th>
+          <th>Number of Spaces</th>
+        </tr>
+        <tr>
+          <td>Level 1</td>
+          <td><span id="level1_parking"></span></td>
+        </tr>
+        <tr>
+          <td>Level 2</td>
+          <td><span id="level2_parking"></span></td>
+        </tr>
+        <tr>
+          <td>Level 3</td>
+          <td><span id="level3_parking"></span></td>
+        </tr>
+        <tr>
+          <td>Level 4</td>
+          <td><span id="level4_parking"></span></td>
+        </tr>
+        <tr>
+          <td>Handicap</td>
+          <td><span id="handicap_parking"></span></td>
+        </tr>
+        <tr>
+          <td>Motorcycle</td>
+          <td><span id="motorcycle_parking"></span></td>
+        </tr>
+      </table>
+    </div>
+
     <div><script>chart();</script></div>
 
     <div>

@@ -65,28 +65,24 @@ async function submitQuery() {
             body: JSON.stringify(garage),
         }); 
         const data = await response.json()
-        console.log(data[0]);
-        setAvailableSpots(data[0]);
+        return data;
     } catch (error) {
         console.error('Error submitting query:', error);
     }
 }
 
-function setAvailableSpots(garage) {
-    level1 = garage['floor 1'];
-    level2 = garage['floor 2'];
-    level3 = garage['floor 3'];
-    level4 = garage['floor 4'];
-    handicap = garage['handicap'];
-    motorcycle = garage['motorcycle'];
-    sum = level1 + level2 + level3 + level4;
-    console.log(level1, level2, level3, level4, handicap, motorcycle, sum, "Test");
-    return level1, level2, level3, level4, handicap, motorcycle, sum;
-}
-
 function main() {
-    level1, level2, level3, level4, handicap, motorcycle, sum = submitQuery();
-    console.log(level1, level2, level3, level4, handicap, motorcycle, sum, "Test");
+    submitQuery()
+        .then((data) => {
+            level1 = data['floor 1'];
+            level2 = data['floor 2'];
+            level3 = data['floor 3'];
+            level4 = data['floor 4'];
+            handicap = data['handicap'];
+            motorcycle = data['motorcycle'];
+            sum = level1 + level2 + level3 + level4;
+            console.log(level1, level2, level3, level4, handicap, motorcycle, sum, "Test");
+        });
     sum_cont.innerHTML = sum;
     //window.addEventListener('keydown', update_num)
     //window.addEventListener('sensor', update_num)

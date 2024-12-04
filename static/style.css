@@ -1,3 +1,9 @@
+body {
+  background-image: url("https://i.postimg.cc/fL0rZPz8/parking-Image.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 h1 {
     text-align: center;
 }
