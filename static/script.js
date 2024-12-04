@@ -12,6 +12,10 @@ var level1_cont = document.getElementById('level1_parking');
 var level2_cont = document.getElementById('level2_parking');
 var level3_cont = document.getElementById('level3_parking');
 var level4_cont = document.getElementById('level4_parking');
+var handicap_cont = document.getElementById('handicap_parking');
+var motorcycle_cont = document.getElementById('motorcycle_parking');
+console.log(sum_cont, level1_cont, level2_cont, level3_cont, level4_cont, handicap_cont, motorcycle_cont);
+
 
 function update_num(event) {
     if (event.code == "ArrowUp") {
@@ -65,6 +69,7 @@ async function submitQuery() {
             body: JSON.stringify(garage),
         }); 
         const data = await response.json()
+        console.log(data[0])
         return data;
     } catch (error) {
         console.error('Error submitting query:', error);
