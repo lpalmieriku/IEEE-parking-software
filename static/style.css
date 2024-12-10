@@ -30,6 +30,12 @@ ul {
     text-decoration: none;
 }
 
+table, th, td {
+  border: 1px solid;
+  color: white;
+  margin: auto;
+}
+
 .dropdown {
   float:left;
   overflow:hidden;

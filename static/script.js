@@ -1,12 +1,3 @@
-var name
-var level1;
-var level2;
-var level3;
-var level4;
-var handicap;
-var motorcycle;
-var sum;
-
 var sum_cont = document.getElementById('sum');
 var level1_cont = document.getElementById('level1_parking');
 var level2_cont = document.getElementById('level2_parking');
@@ -14,8 +5,8 @@ var level3_cont = document.getElementById('level3_parking');
 var level4_cont = document.getElementById('level4_parking');
 var handicap_cont = document.getElementById('handicap_parking');
 var motorcycle_cont = document.getElementById('motorcycle_parking');
-console.log(sum_cont, level1_cont, level2_cont, level3_cont, level4_cont, handicap_cont, motorcycle_cont);
 
+const html_container = [level1_cont, level2_cont, level3_cont, level4_cont, handicap_cont, motorcycle_cont, sum_cont];
 
 function update_num(event) {
     if (event.code == "ArrowUp") {
@@ -58,37 +49,31 @@ function update_num(event) {
         
 }
 
-async function submitQuery() {
-    const garage = { name: "Allen Fieldhouse Parking Garage"};
-    try {
-        const response = await fetch('http://127.0.0.1:5000/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(garage),
-        }); 
-        const data = await response.json()
-        console.log(data[0])
-        return data;
-    } catch (error) {
-        console.error('Error submitting query:', error);
+function set_table(db) {
+    var keys = Object.keys(db);
+    for (var i = 0; i < html_container.length; i++) {
+        html_container[i].innerHTML = db[keys[i]];
     }
 }
 
 function main() {
-    submitQuery()
-        .then((data) => {
-            level1 = data['floor 1'];
-            level2 = data['floor 2'];
-            level3 = data['floor 3'];
-            level4 = data['floor 4'];
-            handicap = data['handicap'];
-            motorcycle = data['motorcycle'];
-            sum = level1 + level2 + level3 + level4;
-            console.log(level1, level2, level3, level4, handicap, motorcycle, sum, "Test");
-        });
-    sum_cont.innerHTML = sum;
+    // Fetch data from the Flask API endpoint
+    fetch('/data')
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.json(); // Parse the JSON from the response
+    })
+    .then(data => {
+        // Store the fetched data in a variable
+        set_table(data);
+        // Use the data in your application
+        console.log('Fetched data:', data);
+    })
+    .catch(error => {
+        console.error('Error fetching data:', error);
+    });
     //window.addEventListener('keydown', update_num)
     //window.addEventListener('sensor', update_num)
 }
