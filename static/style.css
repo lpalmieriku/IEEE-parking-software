@@ -1,71 +1,151 @@
 body {
-  background-image: url("https://i.postimg.cc/fL0rZPz8/parking-Image.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-h1 {
-    text-align: center;
-}
-
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #333;
-  }
-  
-  li {
-    width:10%;
-    font-size: 18px;
-    float: left;
-  }
-  
-  li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-table, th, td {
-  border: 1px solid;
-  color: white;
-  margin: auto;
-}
-
-.dropdown {
-  float:left;
-  overflow:hidden;
-}
-
-.drop-content {
-  display: none;
-  position: absolute;
   background-color: #333;
-  min-width: 10%;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-#nav a:hover {
-  background-color: red;
-  color:black;
-}
-
-.dropdown:hover .drop-content {
-  display: block;
-}
-
-.games {
-  background-color: darkgrey;
-  border-style: double;
-  border-color: red;
+  background-size: cover;
+  font-size: 24px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   color:white;
 }
 
-.games td {
-  padding:2px;
+h1 {
+  text-align: center;
+}
+
+h6 {
+  font-size: 18px;
+  margin:20px 0px 10px 0px;
+}
+
+#part {
+  margin:30px 0px 10px 0px;
+}
+
+#git {
+  color:red;
+}
+
+li {
+  font-size: 18px;
+}
+
+img {
+  width:50%;
+  height:30%;
+  border-style: solid;
+  border-width:5px;
+  border-color:red;
+  float:right;
+}
+
+#nav {
+  margin-top:16px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: red;
+  border-style: solid;
+  border-width:4px;
+  border-color:darkred;
+}
+
+#navel {
+  width:12%;
+  font-size: 18px;
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  border-style: solid;
+  border-width: 0px 4px 0px 0px;
+  border-color: darkred;
+}
+
+#nav a:hover {
+  background-color: darkred;
+  color:white;
+}
+
+#button {
+  margin-top:16px;
+  list-style-type: none;
+  margin: 20px 20px 20px 170px;
+  padding: 10px;
+  overflow: hidden;
+}
+
+button {
+  width:12%;
+  font-size: 18px;
+  float: left;
+  margin:0px 10px 0px 10px;
+  padding:5px;
+  border-radius: 20px;
+  border-width:3px;
+  border-style:double;
+  border-color:white;
+  background-color: #333;
+  color:white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+button:hover {
+  background-color:darkred;
+  border-color:white;
+}
+
+td {
+  font-size:18px;
+  background-color: red;
+  border-style: none;
+  padding:20px 0px 20px 0px;
+  text-align: center;
+}
+
+.counts {
+  width:55%;
+  height:40%;
+  float:left;
+  margin:0px 0px 0px 40px;
+  color:white;
+  background-color: #333;
+  border-spacing: 0px 60px;
+}
+
+.one {
+  border-style:ridge;
+  border-color:white;
+  border-width:4px 0px 4px 4px;
+  padding:30px 0px 30px 0px;
+  font-size:22px;
+}
+
+.two {
+  border-style:ridge;
+  border-color:white;
+  border-width:4px 4px 4px 0px;
+  padding:30px 0px 30px 0px;
+  font-size:22px;
+}
+
+.games {
+  width:70%;
+  height:50%;
+  margin:10px;
+  border-style:ridge;
+  border-color:white;
+  border-width:5px;
+  color:white;
+  background-color:darkred;
+}
+
+th {
+  background-color: darkred;
+  font-size:28px;
+  border-style:none;
+  padding:25px 0px 25px 0px;
 }
