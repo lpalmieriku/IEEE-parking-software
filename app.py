@@ -20,7 +20,7 @@ def about():
 def games():
     return render_template('game_dates.html')
 
-@app.route('/data')
+@app.route('/data', methods=["GET"])
 def get_db():
     return jsonify(db)
 

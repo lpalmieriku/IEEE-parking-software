@@ -56,6 +56,63 @@ function set_table(db) {
     }
 }
 
+function createChart(data, level, i, bool) {
+    var keys = Object.keys(data);
+    const ctx = document.getElementById(level);
+
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: [level],
+      datasets: [{
+        label: "Unavailable",
+        data: [data[keys[i]]],
+        borderWidth: 1,
+        barPercentage:0.3,
+      }, {
+        label: "Available",
+        data: [100-data[keys[i]]],
+        borderWidth: 1,
+        barPercentage:0.3,
+      }]
+    },
+    options: {
+      maintainAspectRatio: false,
+      plugins: {
+        legend: {
+          display: bool
+        }
+      },
+      indexAxis: 'y',
+      scales: {
+        x : {
+          stacked: true,
+          display: false,
+          grid: {
+            display:false
+          },
+          ticks: {
+            display:false
+          },
+        },
+        y: {
+          stacked: true,
+          display: false,
+          beginAtZero: true,
+          grid: {
+            display: false
+          },
+          ticks: {
+            display:false
+          }
+        }
+      }
+      
+    }
+  });
+  }
+
 function main() {
     // Fetch data from the Flask API endpoint
     fetch('/data')
@@ -68,6 +125,7 @@ function main() {
     .then(data => {
         // Store the fetched data in a variable
         set_table(data);
+        createChart(data, "red", 0, true);
         // Use the data in your application
         console.log('Fetched data:', data);
     })

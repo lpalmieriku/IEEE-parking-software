@@ -2,19 +2,15 @@
 
 {% block head %}
     <title>IEEE Parking Software</title>
-    <link rel="stylesheet"  href="../static/style.css">
 {% endblock %}
 {% block body %}
   <br>
-  <div>
-    <ul id="button">
-        <li><button>Level 1</button></li>
-        <li><button>Level 2</button></li>
-        <li><button>Level 3</button></li>
-        <li><button>Level 4</button></li>
-        <li><button>Handicap</button></li>
-        <li><button>Motorcycle</button></li>
-      </ul>
+  <div class = "buttons">
+    <button><a href="#level1"><image src="https://i.postimg.cc/JHHQ85P8/redcar.png"></image></a></button>
+    <button><a href="#level2"><image src="https://i.postimg.cc/9DdJz1VF/bluecar.png"></image></a></button>
+    <button><a href="#level3"><image src="https://i.postimg.cc/TL4cB4jQ/orangecar.png"></image></a></button>
+    <button><a href="#level4"><image src="https://i.postimg.cc/Z9JjN3KP/greencar.png"></image></a></button>
+    <button><a href="#moped"><image src="https://i.postimg.cc/gXJDSWhn/moped.png"></image></a></button>
   </div>
     <div>
       <table class="counts">
@@ -23,57 +19,33 @@
           <th>Number of Spaces</th>
         </tr>
         <tr>
-          <td class="one">Level 1</td>
+          <td class="one" id="level1">Level 1</td>
           <td class="two"><span id="level1_parking"></span></td>
         </tr>
         <tr>
-          <td class="one">Level 2</td>
+          <td class="one" id="level2">Level 2</td>
           <td class="two"><span id="level2_parking"></span></td>
         </tr>
         <tr>
-          <td class="one">Level 3</td>
+          <td class="one" id="level3">Level 3</td>
           <td class="two"><span id="level3_parking"></span></td>
         </tr>
         <tr>
-          <td class="one">Level 4</td>
+          <td class="one" id="level4">Level 4</td>
           <td class="two"><span id="level4_parking"></span></td>
         </tr>
         <tr>
-          <td class="one">Handicap</td>
+          <td class="one" id="hand">Handicap</td>
           <td class="two"><span id="handicap_parking"></span></td>
         </tr>
         <tr>
-          <td class="one">Motorcycle</td>
+          <td class="one" id="moped">Motorcycle</td>
           <td class="two"><span id="motorcycle_parking"></span></td>
         </tr>
       </table>
     </div>
-
-      
-      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-      
-      <script>
-        const total=584;
-        const available = 500; //temp 500 //parseInt(document.getElementById('sum').innerText, 10) || 0;
-        const unavailable = total-available;
-        const ctx = document.getElementById('myChart');
-      
-        new Chart(ctx, {
-          type: 'doughnut',
-          data: {
-            labels: ['Available', 'Unavailable'],
-            datasets: [{
-              label: 'Parking Avilability',
-              data: [unavailable, available], //should be [unavailable,available], but idk what the total is ask lena
-              borderWidth: 1
-            }]
-          },
-            options: {
-            responsive: true,
-            maintainAspectRatio: false, // Ensure the canvas respects the custom dimensions
-        }
-    });
-      </script>
-    
-    <script src="../static/script.js"></script>
+    <div class="chart-cont">
+      <canvas id="blue"></canvas>
+    </div>
+    <script src="/static/script.js"></script>
 {% endblock %}

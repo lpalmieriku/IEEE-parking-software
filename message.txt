@@ -6,3 +6,5 @@ this will give us the total ammount of parking at any given moment and when peop
 EX: you have 30 total parking spots, 25 people enter so you have 5 parking spots left, but then 3 people leave so you now have 8 left
 
 not only will the website hold that data but it will allow you to search by parking garage or spot depending on what parking permit we have
+
+Button Gallery: https://postimg.cc/gallery/YFgqp3B
