@@ -136,7 +136,8 @@ th {
 }
 
 .chart-cont {
-  background-color: none;
-  width:600px;
+  background-color: #333;
+  width:45%;
   height:100px;
+  padding:20px;
 }

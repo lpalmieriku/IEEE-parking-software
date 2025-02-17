@@ -17,35 +17,34 @@
         <tr>
           <th>Space Type</th>
           <th>Number of Spaces</th>
+          <th>Available | Unavailable</th>
         </tr>
         <tr>
           <td class="one" id="level1">Level 1</td>
           <td class="two"><span id="level1_parking"></span></td>
+          <td class="chart-cont"><canvas id="red"></canvas></td>
         </tr>
         <tr>
           <td class="one" id="level2">Level 2</td>
           <td class="two"><span id="level2_parking"></span></td>
+          <td class="chart-cont"><canvas id="blue"></canvas></td>
         </tr>
         <tr>
           <td class="one" id="level3">Level 3</td>
           <td class="two"><span id="level3_parking"></span></td>
+          <td class="chart-cont"><canvas id="orange"></canvas></td>
         </tr>
         <tr>
           <td class="one" id="level4">Level 4</td>
           <td class="two"><span id="level4_parking"></span></td>
-        </tr>
-        <tr>
-          <td class="one" id="hand">Handicap</td>
-          <td class="two"><span id="handicap_parking"></span></td>
+          <td class="chart-cont"><canvas id="green"></canvas></td>
         </tr>
         <tr>
           <td class="one" id="moped">Motorcycle</td>
           <td class="two"><span id="motorcycle_parking"></span></td>
+          <td class="chart-cont"><canvas id="moped"></canvas></td>
         </tr>
       </table>
-    </div>
-    <div class="chart-cont">
-      <canvas id="blue"></canvas>
     </div>
     <script src="/static/script.js"></script>
 {% endblock %}

@@ -24,5 +24,16 @@ def games():
 def get_db():
     return jsonify(db)
 
+@app.route('/request', methods=["POST"])
+def receive_data():
+    if (request.remote_addr == "153.33.237.25"):
+      data = request.get_json()
+      value = data.get('status')
+      if (value == 'true'):
+        db["Floor 1"] = db["Floor 1"]-1
+        return value
+    else:
+      return jsonify(request.remote_addr)
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0")
