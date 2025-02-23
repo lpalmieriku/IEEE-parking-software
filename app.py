@@ -26,14 +26,33 @@ def get_db():
 
 @app.route('/request', methods=["POST"])
 def receive_data():
-    if (request.remote_addr == "153.33.237.25"):
-      data = request.get_json()
-      value = data.get('status')
-      if (value == 'true'):
-        db["Floor 1"] = db["Floor 1"]-1
+    if (request.remote_addr == "127.0.0.1"):
+        data = request.get_json()
+        value = data.get('status')
+        match(value):
+            case "u1":
+                db["Floor 1"] = db["Floor 1"]-1
+            case "d1":
+                db["Floor 1"] = db["Floor 1"]+1
+            case "u2":
+                db["Floor 2"] = db["Floor 2"]-1
+            case "d2":
+                db["Floor 2"] = db["Floor 2"]+1
+            case "u3":
+                db["Floor 3"] = db["Floor 3"]-1
+            case "d3":
+                db["Floor 3"] = db["Floor 3"]+1
+            case "u4":
+                db["Floor 4"] = db["Floor 4"]-1
+            case "d4":
+                db["Floor 4"] = db["Floor 4"]+1
+            case "um":
+                db["Motorcycle"] = db["Motorcycle"]+1
+            case "dm":
+                db["Motorcycle"] = db["Motorcycle"]+1
         return value
     else:
-      return jsonify(request.remote_addr)
+        return jsonify("Not received")
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0")
+    app.run(host="127.0.0.1")
